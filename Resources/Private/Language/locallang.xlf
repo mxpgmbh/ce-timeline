@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-11-22T00:49:26Z" product-name="ce_timeline">
+		<header/>
+		<body>
+			<trans-unit id="entries">
+				<source>Entries</source>
+			</trans-unit>
+			<trans-unit id="ce_title">
+				<source>Timeline Content Element</source>
+			</trans-unit>
+			<trans-unit id="ce_description">
+				<source>Creates a timeline with any number of entries that can be sorted manually</source>
+			</trans-unit>
+
+			<trans-unit id="customsubcategory_634">
+				<source>Gallery Settings</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

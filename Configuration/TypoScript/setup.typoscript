@@ -1,0 +1,55 @@
+tt_content {
+    ce_timeline =< lib.contentElement
+    ce_timeline {
+        templateName = {$ce_timeline.layout.templateName}
+        extbase.controllerExtensionName = ce_timeline
+        dataProcessing {
+            // Request all timeline entries that are related to the content element record
+            // and assign them to the Fluid template as "entries"
+            10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            10 {
+                if.isTrue.field = uid
+                table = tx_cetimeline_domain_model_entry
+                pidInList = this
+                where.field = uid
+                where.intval = 1
+                where.dataWrap = pce = |
+                orderBy = tx_cetimeline_domain_model_entry.sorting
+                as = entries
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = media
+                        as = media
+                    }
+                }
+            }
+        }
+    }
+}
+
+lib.contentElement{
+    templateRootPaths{
+        1277 = EXT:ce_timeline/Resources/Private/Templates/
+    }
+    partialRootPaths{
+        1277 = EXT:ce_timeline/Resources/Private/Partials/
+    }
+    layoutRootPaths{
+        1277 = EXT:ce_timeline/Resources/Private/Layouts/
+    }
+    settings{
+        ce_timeline{
+            gallery{
+                enable_lightbox = {$ce_timeline.gallery.enable_lightbox}
+                image_width = {$ce_timeline.gallery.image_width}
+                image_height = {$ce_timeline.gallery.image_height}
+                lightbox_width = {$ce_timeline.gallery.lightbox_width}
+                lightbox_height = {$ce_timeline.gallery.lightbox_height}
+                textimage_layout = {$ce_timeline.gallery.textimage_layout}
+                images_per_row = {$ce_timeline.gallery.images_per_row}
+                gallery_width = {$ce_timeline.gallery.gallery_width}
+            }
+        }
+    }
+}
